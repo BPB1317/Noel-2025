@@ -19,6 +19,9 @@
         .option {
             margin: 10px 0;
         }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -62,16 +65,60 @@
         <!-- Remplace [Prénom] par un identifiant unique pour chaque membre -->
         <input type="hidden" name="person_name" value="elena">
 
-        <div class="option">
-            <input type="checkbox" id="option1" name="option" value="Match de basket">
-            <label for="option1">JL Bourg 🏀</label>
-        </div>
-        <div class="option">
-            <input type="checkbox" id="option2" name="option" value="Immersion chez les dinosaures">
-            <label for="option2">Immersion chez les dinosaures 🕵️</label>
-        </div>
+         <!-- Choix de l'événement -->
+    <div>
+        <label for="event">Choisis l'événement qui te plairait :</label><br>
+        <select id="event" name="event" onchange="showDates()">
+            <option value="" disabled selected>-- Sélectionne un événement --</option>
+            <option value="Match de basket">Match de basket 🏀</option>
+            <option value="Immersion chez les dinosaures">Immersion chez les dinosaures 🦖</option>
+        </select>
+    </div>
+
+    <!-- Dates pour le match de basket -->
+    <div id="basket-dates" class="hidden">
+        <p>Choisis une ou plusieurs dates pour le match de basket :</p>
+        <input type="checkbox" id="basket-date1" name="date[]" value="07 janvier 2025 | 19h35">
+        <label for="basket-date1">07 janvier 2025 | 19h35</label><br>
+        <input type="checkbox" id="basket-date2" name="date[]" value="22 janvier 2025 | 19h30">
+        <label for="basket-date2">22 janvier 2025 | 19h30</label><br>
+        <input type="checkbox" id="basket-date3" name="date[]" value="01 février 2025 | A définir">
+        <label for="basket-date3">01 février 2025 | A définir</label>
+    </div>
+
+    <!-- Dates pour l'immersion chez les dinosaures -->
+    <div id="dino-dates" class="hidden">
+        <p>Choisis une date pour l'immersion chez les dinosaures :</p>
+        <input type="checkbox" id="dino-date1" name="date[]" value="samedi ou dimanche 11/12 janvier 2025">
+        <label for="dino-date1">samedi ou dimanche 11/12 janvier 2025</label><br>
+        <input type="checkbox" id="dino-date2" name="date[]" value="samedi ou dimanche 18/19 janvier 2025">
+        <label for="dino-date2">samedi ou dimanche 18/19 janvier 2025</label><br>
+        <input type="checkbox" id="dino-date3" name="date[]" value="samedi ou dimanche 25/26 janvier 2025">
+        <label for="dino-date3">samedi ou dimanche 25/26 janvier 2025</label>
+    </div>
+
 
         <button type="submit" style="margin-top: 20px;">Valider</button>
     </form>
+    
+<!-- Script pour gérer le menu déroulant -->
+<script>
+    function showDates() {
+        // Récupère la sélection de l'événement
+        const event = document.getElementById('event').value;
+
+        // Cache toutes les sections
+        document.getElementById('basket-dates').classList.add('hidden');
+        document.getElementById('dino-dates').classList.add('hidden');
+
+        // Affiche uniquement les dates correspondantes
+        if (event === 'Match de basket') {
+            document.getElementById('basket-dates').classList.remove('hidden');
+        } else if (event === 'Immersion chez les dinosaures') {
+            document.getElementById('dino-dates').classList.remove('hidden');
+        }
+    }
+</script>
+    
 </body>
 </html>
