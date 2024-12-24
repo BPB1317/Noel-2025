@@ -6,6 +6,7 @@
     <title>Ton Cadeau !</title>
     <style>
         body {
+            background-color: beige;
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
@@ -25,8 +26,59 @@
     </style>
 </head>
 <body>
-    <h1>Joyeux Noël Nelly 🎁</h1>
+    <h1 style="width: 100%;display: inline-block; text-align: center;background: linear-gradient(to right, deepskyblue, darkviolet); -webkit-background-clip: text; background-clip: text; color: transparent;">Joyeux Noël Nelly</h1><h1>🎁🎁🎁</h1>
+    <h3 style="width: 100%;display: inline-block; text-align: center;background: linear-gradient(to right, gold, red); -webkit-background-clip: text; background-clip: text; color: transparent;">Toi qui bénis chaque jour le ciel de me connaître, je t'offre l'opportunité de passer encore plus de temps avec moi à l'occasion d'un match de basket ou bien d'une immersion à l'époque des dinosaures !
+        <p></p>
+    <h5 style="width: 100%;display: inline-block; text-align: center;background: linear-gradient(to right, gold, red); -webkit-background-clip: text; background-clip: text; color: transparent;"> Si tu as besoin de savoir à quoi t'attendre, tu peux retrouver 2 vidéos en-dessous du vote ! </h5>
 
+
+    <form action="https://formspree.io/f/mblljpza" method="POST">
+        <!-- Remplace [Prénom] par un identifiant unique pour chaque membre -->
+        <input type="hidden" name="person_name" value="nelly">
+
+         <!-- Choix de l'événement -->
+    <div>
+        <select id="event" name="event" onchange="showDates()">
+            <option value="" disabled selected>-- Sélectionne un événement --</option>
+            <option value="Match de basket">Match de basket 🏀</option>
+            <option value="Immersion chez les dinosaures">Immersion chez les dinosaures 🦖</option>
+        </select>
+    </div>
+
+    <!-- Dates pour le match de basket -->
+    <div id="basket-dates" class="hidden">
+        <p>Choisis une ou plusieurs dates pour le match de basket :</p>
+        <input type="checkbox" id="basket-date1" name="date[]" value="07 janvier 2025 | 19h35">
+        <label for="basket-date1">07 janvier 2025 | 19h35</label><br>
+        <input type="checkbox" id="basket-date2" name="date[]" value="22 janvier 2025 | 19h30">
+        <label for="basket-date2">22 janvier 2025 | 19h30</label><br>
+        <input type="checkbox" id="basket-date2" name="date[]" value="29 janvier 2025 | 19h30">
+        <label for="basket-date2">29 janvier 2025 | 19h30</label><br>
+        <input type="checkbox" id="basket-date3" name="date[]" value="01 février 2025 | A définir">
+        <label for="basket-date3">01 février 2025 | A définir</label><br>
+        <input type="checkbox" id="basket-date3" name="date[]" value="01 mars 2025 | A définir">
+        <label for="basket-date3">01 mars 2025 | A définir</label><br>
+    </div>
+
+    <!-- Dates pour l'immersion chez les dinosaures -->
+    <div id="dino-dates" class="hidden">
+        <p>Choisis une ou plusieurs dates pour l'immersion chez les dinosaures :</p>
+        <input type="checkbox" id="dino-date1" name="date[]" value="samedi ou dimanche 11/12 janvier 2025">
+        <label for="dino-date1">samedi ou dimanche 11/12 janvier 2025</label><br>
+        <input type="checkbox" id="dino-date2" name="date[]" value="samedi ou dimanche 18/19 janvier 2025">
+        <label for="dino-date2">samedi ou dimanche 18/19 janvier 2025</label><br>
+        <input type="checkbox" id="dino-date3" name="date[]" value="samedi ou dimanche 25/26 janvier 2025">
+        <label for="dino-date3">samedi ou dimanche 25/26 janvier 2025</label><br>
+        <input type="checkbox" id="dino-date3" name="date[]" value="samedi ou dimanche 01/02 février 2025">
+        <label for="dino-date3">samedi ou dimanche 01/02 février 2025</label><br>
+    </div>
+
+
+        <button type="submit" style="margin-top: 20px;">Valider</button>
+    </form>
+
+<div style="margin: 60px;"></div>
+    
 <iframe
     width="100%"
     height="auto"
@@ -58,48 +110,6 @@
     }
 </style>
 
-
-    <p>Choisis l'option de cadeau qui te plaît le plus :</p>
-
-    <form action="https://formspree.io/f/mblljpza" method="POST">
-        <!-- Remplace [Prénom] par un identifiant unique pour chaque membre -->
-        <input type="hidden" name="person_name" value="nelly">
-
-         <!-- Choix de l'événement -->
-    <div>
-        <label for="event">Choisis l'événement qui te plairait :</label><br>
-        <select id="event" name="event" onchange="showDates()">
-            <option value="" disabled selected>-- Sélectionne un événement --</option>
-            <option value="Match de basket">Match de basket 🏀</option>
-            <option value="Immersion chez les dinosaures">Immersion chez les dinosaures 🦖</option>
-        </select>
-    </div>
-
-    <!-- Dates pour le match de basket -->
-    <div id="basket-dates" class="hidden">
-        <p>Choisis une ou plusieurs dates pour le match de basket :</p>
-        <input type="checkbox" id="basket-date1" name="date[]" value="07 janvier 2025 | 19h35">
-        <label for="basket-date1">07 janvier 2025 | 19h35</label><br>
-        <input type="checkbox" id="basket-date2" name="date[]" value="22 janvier 2025 | 19h30">
-        <label for="basket-date2">22 janvier 2025 | 19h30</label><br>
-        <input type="checkbox" id="basket-date3" name="date[]" value="01 février 2025 | A définir">
-        <label for="basket-date3">01 février 2025 | A définir</label>
-    </div>
-
-    <!-- Dates pour l'immersion chez les dinosaures -->
-    <div id="dino-dates" class="hidden">
-        <p>Choisis une date pour l'immersion chez les dinosaures :</p>
-        <input type="checkbox" id="dino-date1" name="date[]" value="samedi ou dimanche 11/12 janvier 2025">
-        <label for="dino-date1">samedi ou dimanche 11/12 janvier 2025</label><br>
-        <input type="checkbox" id="dino-date2" name="date[]" value="samedi ou dimanche 18/19 janvier 2025">
-        <label for="dino-date2">samedi ou dimanche 18/19 janvier 2025</label><br>
-        <input type="checkbox" id="dino-date3" name="date[]" value="samedi ou dimanche 25/26 janvier 2025">
-        <label for="dino-date3">samedi ou dimanche 25/26 janvier 2025</label>
-    </div>
-
-
-        <button type="submit" style="margin-top: 20px;">Valider</button>
-    </form>
     
 <!-- Script pour gérer le menu déroulant -->
 <script>
